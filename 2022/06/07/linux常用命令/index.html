@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
-  <link rel="icon" href="/blog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,17 +16,19 @@
   <meta name="author" content="yehong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="linux常用命令终端 &#x2F;dev&#x2F;console控制台 &#x2F;dev&#x2F;ttyS#">
+    <meta name="description" content="linux常用命令终端类型 &#x2F;dev&#x2F;console控制台 &#x2F;dev&#x2F;ttyS# 串行终端 &#x2F;dev&#x2F;tty# 虚拟终端 ，ctrl+alt+F1~F6 &#x2F;dev&#x2F;pts&#x2F;# 伪终端 ssh远程连接 startx,xwindows 图形终端 ctrl+alt+F7 (centos 6)123#查看当前终端设备">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux常用命令">
 <meta property="og:url" content="http://example.com/2022/06/07/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Let&#39;s start to learn SRE">
-<meta property="og:description" content="linux常用命令终端 &#x2F;dev&#x2F;console控制台 &#x2F;dev&#x2F;ttyS#">
+<meta property="og:description" content="linux常用命令终端类型 &#x2F;dev&#x2F;console控制台 &#x2F;dev&#x2F;ttyS# 串行终端 &#x2F;dev&#x2F;tty# 虚拟终端 ，ctrl+alt+F1~F6 &#x2F;dev&#x2F;pts&#x2F;# 伪终端 ssh远程连接 startx,xwindows 图形终端 ctrl+alt+F7 (centos 6)123#查看当前终端设备">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2Linux%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E5%92%8C%E5%B8%AE%E5%8A%A9%5Cshell.png">
 <meta property="article:published_time" content="2022-06-07T07:58:24.000Z">
-<meta property="article:modified_time" content="2022-06-07T08:00:42.844Z">
+<meta property="article:modified_time" content="2022-06-07T12:32:31.392Z">
 <meta property="article:author" content="yehong">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2Linux%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E5%92%8C%E5%B8%AE%E5%8A%A9%5Cshell.png">
   
   
   
@@ -54,12 +56,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/blog/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -68,15 +70,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/blog/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/blog/js/utils.js" ></script>
-  <script  src="/blog/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -91,7 +93,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/blog/">
+    <a class="navbar-brand" href="/">
       <strong>hyhappy99</strong>
     </a>
 
@@ -110,7 +112,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -122,7 +124,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -134,7 +136,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -146,7 +148,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -158,7 +160,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/blog/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -187,7 +189,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -216,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          56 字
+          585 字
         
       </span>
     
@@ -227,7 +229,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -269,10 +271,38 @@
             
             <div class="markdown-body">
               
-              <h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1><h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><ul>
+              <h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1><h2 id="终端类型"><a href="#终端类型" class="headerlink" title="终端类型"></a>终端类型</h2><ul>
 <li>&#x2F;dev&#x2F;console控制台</li>
-<li>&#x2F;dev&#x2F;ttyS#</li>
+<li>&#x2F;dev&#x2F;ttyS# 串行终端</li>
+<li>&#x2F;dev&#x2F;tty# 虚拟终端 ，ctrl+alt+F1~F6</li>
+<li>&#x2F;dev&#x2F;pts&#x2F;# 伪终端 ssh远程连接</li>
+<li>startx,xwindows 图形终端 ctrl+alt+F7 (centos 6)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#查看当前终端设备</span><br><span class="hljs-built_in">tty</span><br>/dev/pts/0<br></code></pre></td></tr></table></figure>
+<h2 id="交互式接口"><a href="#交互式接口" class="headerlink" title="交互式接口"></a>交互式接口</h2></li>
+<li>GUI：Graphic User Interface X protocol, window manager, desktop <ul>
+<li>GNOME (C, 图形库gtk)</li>
+<li>KDE   (C++,图形库qt)</li>
+<li>XFCE  (轻量级桌面)</li>
 </ul>
+</li>
+<li>CLI：Command Line Interface <ul>
+<li>shell程序:<ul>
+<li>Shell 是Linux系统的用户界面，提供了用户与内核进行交互操作的一种接口。它接收用户输入的命令并把它送入内核去执行.</li>
+<li>shell也被称为LINUX的命令解释器（command interpreter），Shell 本身是一个程序。将用户输入的命令行拆解为”命令名“与”参数“。接着，根据命令名找到对应要执行的程序，对被执行的程序进行初始<br>  化，然后将刚才解析出来的参数传给该程序并执行.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/./2Linux%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E5%92%8C%E5%B8%AE%E5%8A%A9%5Cshell.png" srcset="/img/loading.gif" lazyload alt="shell"></p>
+<details>
+<summary>shell</summary>
+Shell 是Linux系统的用户界面，提供了用户与内核进行交互操作的一种接口。它接收用户输入的命令并把它送入内核去执行
+</details>
+
+
+
+
+
 
               
             </div>
@@ -336,7 +366,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/blog/2022/06/07/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="hexo常用命令">
+                      <a href="/2022/06/07/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="hexo常用命令">
                         <span class="hidden-mobile">hexo常用命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -462,8 +492,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/blog/js/events.js" ></script>
-<script  src="/blog/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -487,7 +517,7 @@
 
 
   
-    <script  src="/blog/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -624,7 +654,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/blog/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -632,7 +662,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/blog/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
