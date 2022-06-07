@@ -24,7 +24,7 @@
 <meta property="og:description" content="Linux基础入门和帮助1. 终端类型 &#x2F;dev&#x2F;console控制台 &#x2F;dev&#x2F;ttyS# 串行终端 &#x2F;dev&#x2F;tty# 虚拟终端 ，ctrl+alt+F1~F6 &#x2F;dev&#x2F;pts&#x2F;# 伪终端 ssh远程连接 startx,xwindows 图形终端 ctrl+alt+F7 (centos 6)  [^ct">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-07T04:46:12.000Z">
-<meta property="article:modified_time" content="2022-06-07T16:37:13.668Z">
+<meta property="article:modified_time" content="2022-06-07T17:06:05.610Z">
 <meta property="article:author" content="yehong">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -216,7 +216,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k 字
+          5.6k 字
         
       </span>
     
@@ -227,7 +227,7 @@
         
         
         
-          43 分钟
+          47 分钟
         
       </span>
     
@@ -439,6 +439,30 @@ ctrl+b,&quot;
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$VAR_NAME</span>”    #用变量值替换，弱引用 </span><br><span class="hljs-string">echo &#x27;<span class="hljs-variable">$VAR_NAME</span>’    #变量不会替换，强引用</span><br><span class="hljs-string"></span><br><span class="hljs-string">[root@centos8 ~]#echo -e &#x27;a\x0Ab&#x27;</span><br><span class="hljs-string">a</span><br><span class="hljs-string">b</span><br><span class="hljs-string">[root@centos8 ~]#echo -e &#x27;\033[43;31;1;5mmagedu\e[0m&#x27; </span><br><span class="hljs-string">magedu</span><br><span class="hljs-string">[root@centos8 ~]#echo -e &#x27;\x57\x41\x4E\x47&#x27; </span><br><span class="hljs-string">WANG</span><br><span class="hljs-string">[root@centos8 ~]#echo \$PATH </span><br><span class="hljs-string"><span class="hljs-variable">$PATH</span></span><br><span class="hljs-string">[root@centos8 ~]#echo \ </span><br><span class="hljs-string">[root@centos8 ~]#echo \\ </span><br><span class="hljs-string">\</span><br><span class="hljs-string">[root@centos8 ~]#echo \\\ </span><br><span class="hljs-string">&gt;</span><br><span class="hljs-string">[root@centos8 ~]#echo \\\\ </span><br><span class="hljs-string">\\</span><br><span class="hljs-string">[root@centos8 ~]#echo &quot;</span><span class="hljs-variable">$PATH</span><span class="hljs-string">&quot;</span><br><span class="hljs-string">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin </span><br><span class="hljs-string">[root@centos8 ~]#echo &#x27;<span class="hljs-variable">$PATH</span>&#x27;</span><br><span class="hljs-string"><span class="hljs-variable">$PATH</span></span><br></code></pre></td></tr></table></figure>
 <h2 id="字符集和编码及语言环境"><a href="#字符集和编码及语言环境" class="headerlink" title="字符集和编码及语言环境"></a>字符集和编码及语言环境</h2><p>许多场合下，字符集与编码这两个概念常被混为一谈，但两者是有差别的。字符集与字符集编码是两个<br>不同层面的概念<br>charset是character set的简写，即字符集，即二进制和字符的对应关系，不关注最终的存储形式<br>encoding是charset encoding的简写，即字符集编码，简称编码，实现如何将字符转化为实际的二进制<br>进行存储或相反，编码决定了空间的使用的大小</p>
+<h2 id="语言环境"><a href="#语言环境" class="headerlink" title="语言环境"></a>语言环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span> <br>en_US.UTF-8<br>LANG=zh_CN.UTF-8<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span><br>zh_CN.UTF-8<br>[root@rocky8 ~]<span class="hljs-comment">#localectl status </span><br>   System Locale: LANG=en_US.UTF-8 <br>       VC Keymap: us<br>      X11 Layout: us <br>[root@rocky8 ~]<span class="hljs-comment">#echo $LANG </span><br>en_US.UTF-8<br><br></code></pre></td></tr></table></figure>
+
+<p>命令行扩展：&#96;&#96; 和 $()</p>
+<p>括号扩展：{ }</p>
+<p>获得帮助</p>
+<p>层次的帮助<br>whatis<br>command –help<br>man<br>&#x2F;usr&#x2F;share&#x2F;doc&#x2F;<br>Red Hat documentation 、Ubuntu documentation<br>软件项目网站<br>其它网站<br>搜索</p>
+<p>whatis<br>whatis 使用数据库来显示命令的简短描述</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#CentOS 7 版本以后</span><br>mandb<br><span class="hljs-comment">#CentOS 6 版本之前</span><br>makewhatis<br></code></pre></td></tr></table></figure>
+
+<p>内部命令帮助</p>
+<ul>
+<li>help COMMAND </li>
+<li>man bash</li>
+</ul>
+<p>外部命令及软件帮助</p>
+<ul>
+<li>COMMAND –help  或  COMMAND -h </li>
+<li>使用 man 手册(manual)： man COMMAND </li>
+<li>信息页：info COMMAND</li>
+<li>程序自身的帮助文档：README、INSTALL、ChangeLog </li>
+<li>程序官方文档</li>
+<li>相关网站，如：技术论坛 </li>
+<li>搜索引擎</li>
+</ul>
 
               
             </div>
